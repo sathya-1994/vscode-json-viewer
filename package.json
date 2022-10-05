@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "engines": {
+    "yarn": ">=1.7.0 <2.x.x"
+  },
+  "scripts": {
+  },
+  "devDependencies": {
+
+  },
+  "workspaces": [
+    "packages/*/",
+    "example/*"
+  ]
+}
