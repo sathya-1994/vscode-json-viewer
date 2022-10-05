@@ -4,9 +4,20 @@
     "yarn": ">=1.7.0 <2.x.x"
   },
   "scripts": {
+  
+    "watch": "lerna run --parallel watch",
+    "build": "yarn install --ignore-scripts && lerna run build",
+    "test": "lerna run test",
+    "lint": "lerna run lint --",
+    "prepare": "lerna run prepare"
   },
   "devDependencies": {
-
+    "@eclipse-glsp/config": "^1.0.0",
+    "mvn-artifact-download": "5.1.0",
+    "rimraf": "^2.6.3",
+    "typescript": "^4.4.5",
+    "@types/vscode": "^1.54.0",
+    "lerna": "^4.0.0"
   },
   "workspaces": [
     "packages/*/",

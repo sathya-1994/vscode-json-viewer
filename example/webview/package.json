@@ -2,5 +2,27 @@
   "name": "json-viewer-webview",
   "private": "true",
   "displayName": "json-viewer-webview",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@eclipse-glsp/vscode-integration-webview": "1.1.0-next",
+    "@vscode/codicons": "^0.0.25",
+    "style-loader": "^2.0.0",
+    "ts-loader": "^8.1.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.9.1",
+    "yargs": "^12.0.5",
+    "circular-dependency-plugin": "^5.2.2",
+    "css-loader": "^2.1.0",
+    "ignore-loader": "^0.1.2",
+    "reflect-metadata": "^0.1.13",
+    "source-map-loader": "^1.0.2"
+  },
+  "scripts": {
+    "prepare": "yarn clean && yarn build && yarn lint",
+    "build": "tsc && webpack --mode=development",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "lint:fix": "eslint --fix --ext .ts,.tsx ./src",
+    "watch": "tsc -w",
+    "clean": "rimraf lib ../extension/pack tsconfig.tsbuildinfo"
+  }
 }

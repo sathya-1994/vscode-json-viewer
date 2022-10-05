@@ -1,5 +1,6 @@
 {
   "name": "json-viewer",
+  "private": "true",
   "displayName": "json-viewer",
   "description": "",
   "version": "0.0.1",
@@ -10,17 +11,40 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./out/extension.js",
   "contributes": {
     "commands": []
   },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+  "files": [
+    "lib",
+    "extension",
+    "server",
+    "webview"
+  ],
+  "dependencies": {
+    "@vscode/codicons": "^0.0.25"
   },
-  "devDependencies": {}
+  "main": "./lib/index",
+  "devDependencies": {
+    "@eclipse-glsp/vscode-integration": "1.1.0-next",
+    "@types/vscode": "^1.54.0",
+    "path": "^0.12.7",
+    "reflect-metadata": "^0.1.13",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^10.8.2"
+  },
+  "scripts": {
+    "prepare": "yarn clean && yarn lint",
+    "clean": "rimraf lib tsconfig.tsbuildinfo",
+    "watch": "tsc -w",
+    "lint": "eslint --ext .ts,.tsx ./src",
+    "lint:fix": "eslint --fix --ext .ts,.tsx ./src"
+  },
+  "workspaces": {
+    "workspaces": {
+      "nohoist": [
+        "**/@vscode/codicons",
+        "**/@vscode/codicons/**"
+      ]
+    }
+  }
 }
